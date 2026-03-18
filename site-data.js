@@ -57,14 +57,6 @@ const siteData = {
         "Vehicle emissions dataset and reproduction guide referenced in the ontology-guided transportation paper.",
       url: "https://github.com/FTamas77/Causality/blob/develop/datasets/vehicles/README.md",
       linkLabel: "Open dataset README"
-    },
-    {
-      tag: "Implementation",
-      name: "CPPCausality",
-      copy:
-        "C++ ontology-guided FCI implementation linked from the same publication for faster large-scale causal discovery.",
-      url: "https://github.com/FTamas77/CPPCausality/blob/main/README.md",
-      linkLabel: "Open implementation README"
     }
   ],
   publications: [
@@ -112,5 +104,5 @@ const siteData = {
     }
   ],
   footer:
-    "Overview of causal AI research directions, example repositories, and selected publications."
+    "Overview of causal AI research directions, a paper-linked resource, and selected publications."
 };
