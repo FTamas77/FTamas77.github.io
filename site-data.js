@@ -1,61 +1,52 @@
 const siteData = {
   hero: {
-    eyebrow: "Tamas Fekete | Causal AI",
-    title: "Causal AI work focused on defensible decisions, not just predictions.",
-    summary:
-      "This page collects a small set of public repositories and the current publication entry point for theory-first causal workflows, causal discovery, and inference.",
-    primaryLink: {
-      label: "Open GitHub profile",
-      url: "https://github.com/FTamas77"
-    },
-    secondaryLink: {
-      label: "Browse repositories",
-      url: "#repositories"
-    }
+    eyebrow: "Selected Publications",
+    title: "Dr. Tamas Fekete",
+    summary: "Selected publications on causal AI."
   },
-  focus:
-    "The goal is simple: one clean public page that points to the most relevant Causal AI work without mixing a personal showcase into the implementation repositories themselves.",
-  repositories: [
+  publications: [
     {
-      tag: "Framework",
-      name: "causal-graph-framework",
-      description:
-        "Theory-first causal discovery and inference framework with explicit knowledge integration, workflow design, and artifact-oriented documentation.",
-      url: "https://github.com/FTamas77/causal-graph-framework"
+      meta: "Procedia CIRP, 2024",
+      title:
+        "Leveraging causal machine learning for sustainable automotive industry: Analyzing factors influencing CO2 emissions",
+      authors: "Vahid Menu Nesro, Tamas Fekete, Hendro Wicaksono"
     },
     {
-      tag: "Agent Lab",
-      name: "causal-agent-lab",
-      description:
-        "A compact lab repository for experimenting with causal agents and agent-oriented causal workflow execution.",
-      url: "https://github.com/FTamas77/causal-agent-lab"
+      meta: "IEEE IEEM, 2024",
+      title:
+        "Causal AI in the Automotive Industry: Impact Analysis Through Carbon Emission Case Study",
+      authors: "Syed Muhammad Ali Hashmi, Tamas Fekete, Hendro Wicaksono"
+    },
+    {
+      meta: "Procedia Computer Science, 2025",
+      title:
+        "From theory to practice: Implementing causal AI in manufacturing for sustainability",
+      authors: "Heonyoung Jeong, Tamas Fekete, Atit Bashyal, Hendro Wicaksono"
+    },
+    {
+      meta: "Sustainable Cities and Society, 2025",
+      title:
+        "Leveraging causal AI to uncover the dynamics in sustainable urban transport: A bike sharing time-series study",
+      authors: "Tamas Fekete, Girum Mengistu, Hendro Wicaksono"
+    },
+    {
+      meta: "PhD Thesis, 2025",
+      title:
+        "Causal AI for Smart Decision-Making: Driving Sustainability in Urban Mobility and Industry",
+      authors: "Tamas Fekete"
+    },
+    {
+      meta: "International Journal of Production Research, 2025",
+      title:
+        "A comprehensive causal AI framework for analysing factors affecting energy consumption and costs in customised manufacturing",
+      authors: "Tamas Fekete, Isabella Marquez Petrone, Hendro Wicaksono"
+    },
+    {
+      meta: "International Journal of Sustainable Transportation, 2025",
+      title:
+        "Ontology-guided causal discovery and inference for reducing CO2 emissions in transportation",
+      authors: "Tamas Fekete, Hendro Wicaksono"
     }
   ],
-  publication: {
-    meta: "Publication entry",
-    title: "Add the current paper or preprint here",
-    summary:
-      "Replace this block with the publication title, venue, and URL as soon as the public paper, preprint, or project page is ready.",
-    label: "Open paper",
-    url: ""
-  },
-  pillars: [
-    {
-      title: "Theory-first",
-      copy:
-        "The starting point is a defensible causal workflow, not a model demo detached from assumptions or identifiability."
-    },
-    {
-      title: "Knowledge-aware",
-      copy:
-        "Domain constraints and prior knowledge are treated as first-class inputs instead of afterthought documentation."
-    },
-    {
-      title: "Decision-oriented",
-      copy:
-        "The target is intervention and counterfactual reasoning for practical decision support, especially where prediction is not enough."
-    }
-  ],
-  footer:
-    "Minimal static site for GitHub Pages. Edit site-data.js to swap repositories, add a publication, or change the positioning copy."
+  footer: "Selected causal AI publications."
 };
