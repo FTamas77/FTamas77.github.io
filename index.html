@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Tamas Fekete | Publications</title>
+    <title>Dr. Tamas Fekete | Causal AI</title>
     <meta
       name="description"
-      content="Selected publications on causal AI by Dr. Tamas Fekete."
+      content="Causal AI overview and selected publications by Dr. Tamas Fekete."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,15 +19,47 @@
   <body>
     <div class="page-shell">
       <header class="hero">
-        <p class="eyebrow" id="eyebrow">Selected Publications</p>
+        <p class="eyebrow" id="eyebrow">Causal AI</p>
         <h1 id="hero-title">Dr. Tamas Fekete</h1>
-        <p class="hero-copy" id="hero-summary">Selected publications on causal AI.</p>
+        <p class="hero-copy" id="hero-summary"></p>
       </header>
 
       <main>
+        <section class="panel" id="overview">
+          <div class="section-heading">
+            <p class="section-kicker">Overview</p>
+            <h2>Why causal AI</h2>
+          </div>
+          <div class="body-copy" id="overview-copy"></div>
+        </section>
+
+        <section class="panel" id="diagram">
+          <div class="section-heading">
+            <p class="section-kicker">Flow</p>
+            <h2>From data to decisions</h2>
+          </div>
+          <div class="diagram-grid" id="diagram-grid"></div>
+        </section>
+
+        <section class="panel" id="compare">
+          <div class="section-heading">
+            <p class="section-kicker">Difference</p>
+            <h2>Predictive AI vs causal AI</h2>
+          </div>
+          <div class="compare-grid" id="compare-grid"></div>
+        </section>
+
+        <section class="panel" id="repos">
+          <div class="section-heading">
+            <p class="section-kicker">Examples</p>
+            <h2>Public repositories</h2>
+          </div>
+          <div class="repo-grid" id="repo-grid"></div>
+        </section>
+
         <section class="panel" id="publications">
           <div class="section-heading">
-            <p class="section-kicker">Causal AI</p>
+            <p class="section-kicker">Publications</p>
             <h2>Selected papers</h2>
           </div>
           <div class="publication-list" id="publication-list"></div>
@@ -35,7 +67,7 @@
       </main>
 
       <footer class="footer">
-        <p id="footer-note">Selected causal AI publications.</p>
+        <p id="footer-note"></p>
       </footer>
     </div>
 
@@ -47,6 +79,58 @@
       byId("hero-title").textContent = siteData.hero.title;
       byId("hero-summary").textContent = siteData.hero.summary;
       byId("footer-note").textContent = siteData.footer;
+
+      const overviewCopy = byId("overview-copy");
+      siteData.overview.forEach((paragraph) => {
+        const p = document.createElement("p");
+        p.textContent = paragraph;
+        overviewCopy.appendChild(p);
+      });
+
+      const diagramGrid = byId("diagram-grid");
+      siteData.diagram.forEach((step, index) => {
+        const card = document.createElement("article");
+        card.className = "diagram-card";
+        card.innerHTML = `
+          <p class="card-tag">${step.tag}</p>
+          <h3>${step.title}</h3>
+          <p>${step.copy}</p>
+        `;
+        diagramGrid.appendChild(card);
+
+        if (index < siteData.diagram.length - 1) {
+          const arrow = document.createElement("div");
+          arrow.className = "diagram-arrow";
+          arrow.textContent = "->";
+          diagramGrid.appendChild(arrow);
+        }
+      });
+
+      const compareGrid = byId("compare-grid");
+      siteData.compare.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "compare-card";
+        const points = item.points.map((point) => `<li>${point}</li>`).join("");
+        card.innerHTML = `
+          <p class="card-tag">${item.tag}</p>
+          <h3>${item.title}</h3>
+          <ul>${points}</ul>
+        `;
+        compareGrid.appendChild(card);
+      });
+
+      const repoGrid = byId("repo-grid");
+      siteData.repositories.forEach((repo) => {
+        const card = document.createElement("article");
+        card.className = "repo-card";
+        card.innerHTML = `
+          <p class="card-tag">${repo.tag}</p>
+          <h3>${repo.name}</h3>
+          <p>${repo.copy}</p>
+          <a href="${repo.url}" target="_blank" rel="noreferrer">${repo.linkLabel}</a>
+        `;
+        repoGrid.appendChild(card);
+      });
 
       const publicationList = byId("publication-list");
       siteData.publications.forEach((paper) => {
