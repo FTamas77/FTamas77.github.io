@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tamas Fekete | Causal AI</title>
+    <meta
+      name="description"
+      content="Minimal GitHub Pages landing site for Causal AI projects, repositories, and publications."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow" id="eyebrow">Causal AI</p>
+        <h1 id="hero-title">Theory-first causal systems for real decisions.</h1>
+        <p class="hero-copy" id="hero-summary">
+          Lightweight landing page for repositories, methods, and publications.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" id="primary-link" href="#">GitHub</a>
+          <a class="button button-secondary" id="secondary-link" href="#repositories"
+            >Selected repositories</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="panel panel-accent" id="focus">
+          <div class="section-heading">
+            <p class="section-kicker">Focus</p>
+            <h2>What this site is for</h2>
+          </div>
+          <p id="focus-copy">
+            A compact public landing page for sharing Causal AI work without mixing it into
+            implementation repositories.
+          </p>
+        </section>
+
+        <section class="panel" id="repositories">
+          <div class="section-heading">
+            <p class="section-kicker">Repositories</p>
+            <h2>Selected public work</h2>
+          </div>
+          <div class="card-grid" id="repo-grid"></div>
+        </section>
+
+        <section class="panel" id="publication">
+          <div class="section-heading">
+            <p class="section-kicker">Publication</p>
+            <h2>Paper or preprint</h2>
+          </div>
+          <article class="publication-card">
+            <p class="publication-meta" id="publication-meta">Add your current paper here</p>
+            <h3 id="publication-title">Publication link pending</h3>
+            <p id="publication-summary">
+              Replace the placeholder in <code>site-data.js</code> when the paper link is ready.
+            </p>
+            <a class="button button-secondary" id="publication-link" href="#publication"
+              >Update publication link</a
+            >
+          </article>
+        </section>
+
+        <section class="panel" id="approach">
+          <div class="section-heading">
+            <p class="section-kicker">Approach</p>
+            <h2>Short positioning</h2>
+          </div>
+          <div class="pillars" id="pillars"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p id="footer-note">Built as a minimal GitHub Pages site.</p>
+      </footer>
+    </div>
+
+    <script src="./site-data.js"></script>
+    <script>
+      const byId = (id) => document.getElementById(id);
+
+      byId("eyebrow").textContent = siteData.hero.eyebrow;
+      byId("hero-title").textContent = siteData.hero.title;
+      byId("hero-summary").textContent = siteData.hero.summary;
+      byId("primary-link").href = siteData.hero.primaryLink.url;
+      byId("primary-link").textContent = siteData.hero.primaryLink.label;
+      byId("secondary-link").href = siteData.hero.secondaryLink.url;
+      byId("secondary-link").textContent = siteData.hero.secondaryLink.label;
+      byId("focus-copy").textContent = siteData.focus;
+      byId("footer-note").textContent = siteData.footer;
+
+      const repoGrid = byId("repo-grid");
+      siteData.repositories.forEach((repo) => {
+        const card = document.createElement("article");
+        card.className = "repo-card";
+        card.innerHTML = `
+          <p class="repo-tag">${repo.tag}</p>
+          <h3>${repo.name}</h3>
+          <p>${repo.description}</p>
+          <div class="repo-links">
+            <a href="${repo.url}" target="_blank" rel="noreferrer">Open repository</a>
+          </div>
+        `;
+        repoGrid.appendChild(card);
+      });
+
+      const publicationLink = byId("publication-link");
+      byId("publication-meta").textContent = siteData.publication.meta;
+      byId("publication-title").textContent = siteData.publication.title;
+      byId("publication-summary").textContent = siteData.publication.summary;
+
+      if (siteData.publication.url) {
+        publicationLink.href = siteData.publication.url;
+        publicationLink.textContent = siteData.publication.label;
+        publicationLink.target = "_blank";
+        publicationLink.rel = "noreferrer";
+      } else {
+        publicationLink.href = "./site-data.js";
+        publicationLink.textContent = "Edit publication details";
+      }
+
+      const pillars = byId("pillars");
+      siteData.pillars.forEach((item) => {
+        const block = document.createElement("article");
+        block.className = "pillar";
+        block.innerHTML = `<h3>${item.title}</h3><p>${item.copy}</p>`;
+        pillars.appendChild(block);
+      });
+    </script>
+  </body>
+</html>
