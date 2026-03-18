@@ -51,20 +51,20 @@ const siteData = {
   ],
   repositories: [
     {
-      tag: "Framework example",
-      name: "causal-graph-framework",
+      tag: "Link in paper",
+      name: "Causality",
       copy:
-        "Theory-first framework for causal discovery and inference with explicit knowledge integration.",
-      url: "https://github.com/FTamas77/causal-graph-framework/blob/main/README.md",
-      linkLabel: "Open README"
+        "Vehicle emissions dataset and reproduction guide referenced in the ontology-guided transportation paper.",
+      url: "https://github.com/FTamas77/Causality/blob/develop/datasets/vehicles/README.md",
+      linkLabel: "Open dataset README"
     },
     {
-      tag: "Discovery example",
-      name: "Cauza",
+      tag: "Implementation",
+      name: "CPPCausality",
       copy:
-        "Public causal discovery platform example that shows an applied discovery workflow in software form.",
-      url: "https://github.com/FTamas77/Cauza/blob/main/README.md",
-      linkLabel: "Open README"
+        "C++ ontology-guided FCI implementation linked from the same publication for faster large-scale causal discovery.",
+      url: "https://github.com/FTamas77/CPPCausality/blob/main/README.md",
+      linkLabel: "Open implementation README"
     }
   ],
   publications: [
