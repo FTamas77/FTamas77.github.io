@@ -49,6 +49,79 @@ const siteData = {
       ]
     }
   ],
+  caseStudy: {
+    copy: [
+      "A concrete example is the vehicle emissions study behind the paper Ontology-guided causal discovery and inference for reducing CO2 emissions in transportation. The dataset comes from the Hungarian Ministry of Construction and Transport and contains technical inspection records for passenger vehicles.",
+      "The analysis combines causal discovery, ontology constraints, and causal inference to study how cylinder capacity, engine power, and other technical attributes drive CO2 emissions. The point is not only to find correlations, but to remove physically implausible edges and support counterfactual and policy-oriented questions."
+    ],
+    stats: [
+      {
+        label: "Dataset",
+        value: "463,568 vehicles",
+        copy: "Cross-sectional passenger vehicle records from technical inspections."
+      },
+      {
+        label: "Scope",
+        value: "Hungary, 2023",
+        copy: "Inspection data covering vehicle categories M1, M1G, N1, and N1G."
+      },
+      {
+        label: "Goal",
+        value: "CO2 causal drivers",
+        copy: "Estimate which technical factors materially influence emissions."
+      }
+    ],
+    graphNodes: [
+      {
+        tag: "Driver",
+        title: "Cylinder capacity"
+      },
+      {
+        tag: "Mediator",
+        title: "Engine power"
+      },
+      {
+        tag: "Outcome",
+        title: "CO2 emissions"
+      }
+    ],
+    referenceEdges: [
+      "Cylinder capacity -> Engine power",
+      "Cylinder capacity -> CO2 emissions",
+      "Engine power -> CO2 emissions"
+    ],
+    forbiddenEdges: [
+      "Passing noise -> CO2 emissions",
+      "CO2 emissions -> Cylinder capacity"
+    ],
+    results: [
+      "The key result reported in the paper is that ontology constraints improved F1 from 0.67 to 0.78 and removed spurious edges. In practice this means the graph becomes more defensible, not just statistically convenient.",
+      "The same setup also supports causal effect estimation and what-if analysis, for example testing how engine specifications or specific power relate to emissions under a causal interpretation rather than a purely predictive one."
+    ],
+    metrics: [
+      {
+        algorithm: "PC baseline",
+        f1: "0.67",
+        precision: "0.65",
+        recall: "0.69",
+        spurious: "2"
+      },
+      {
+        algorithm: "FCI + ontology",
+        f1: "0.78",
+        precision: "0.82",
+        recall: "0.75",
+        spurious: "0"
+      },
+      {
+        algorithm: "GES",
+        f1: "0.71",
+        precision: "0.73",
+        recall: "0.69",
+        spurious: "1"
+      }
+    ]
+  },
   repositories: [
     {
       tag: "Link in paper",
@@ -57,6 +130,38 @@ const siteData = {
         "Vehicle emissions dataset and reproduction guide referenced in the ontology-guided transportation paper.",
       url: "https://github.com/FTamas77/Causality/blob/develop/datasets/vehicles/README.md",
       linkLabel: "Open dataset README"
+    },
+    {
+      tag: "Python GUI",
+      name: "cross-sectional-proc",
+      copy:
+        "Interactive Python GUI with DoWhy-based inference, result comparison, and publication-oriented visual analysis.",
+      url: "https://github.com/FTamas77/Causality/blob/develop/cross-sectional-proc/README.md",
+      linkLabel: "Open GUI README"
+    },
+    {
+      tag: "C++ implementation",
+      name: "CPPCausality",
+      copy:
+        "Ontology-guided FCI implementation for larger-scale discovery and faster execution.",
+      url: "https://github.com/FTamas77/CPPCausality",
+      linkLabel: "Open repository"
+    },
+    {
+      tag: "Feature selection",
+      name: "feature-selection",
+      copy:
+        "Supporting material for selecting relevant variables before causal analysis.",
+      url: "https://github.com/FTamas77/Causality/blob/develop/feature-selection/README.md",
+      linkLabel: "Open README"
+    },
+    {
+      tag: "Time series",
+      name: "time-series-proc",
+      copy:
+        "Time-series analysis path linked from the same Causality repository.",
+      url: "https://github.com/FTamas77/Causality/blob/develop/time-series-proc/README.md",
+      linkLabel: "Open README"
     }
   ],
   publications: [
@@ -104,5 +209,5 @@ const siteData = {
     }
   ],
   footer:
-    "Overview of causal AI research directions, a paper-linked resource, and selected publications."
+    "Overview of causal AI research directions, an ontology-guided transport case study, linked resources, and selected publications."
 };

@@ -49,10 +49,59 @@
           <div class="compare-grid" id="compare-grid"></div>
         </section>
 
-        <section class="panel" id="repos">
+        <section class="panel" id="case-study">
           <div class="section-heading">
-            <p class="section-kicker">Examples</p>
-            <h2>Paper-linked resource</h2>
+            <p class="section-kicker">Case Study</p>
+            <h2>Ontology-guided transport emissions analysis</h2>
+          </div>
+          <div class="body-copy" id="case-copy"></div>
+          <div class="stat-grid" id="stat-grid"></div>
+        </section>
+
+        <section class="panel" id="graph">
+          <div class="section-heading">
+            <p class="section-kicker">Graph</p>
+            <h2>Core causal structure</h2>
+          </div>
+          <div class="graph-flow" id="graph-flow"></div>
+          <div class="edge-grid">
+            <article class="edge-card">
+              <p class="card-tag">Reference edges</p>
+              <ul id="reference-edges"></ul>
+            </article>
+            <article class="edge-card">
+              <p class="card-tag">Forbidden edges</p>
+              <ul id="forbidden-edges"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="results">
+          <div class="section-heading">
+            <p class="section-kicker">Results</p>
+            <h2>Why ontology constraints matter</h2>
+          </div>
+          <div class="body-copy" id="results-copy"></div>
+          <div class="metrics-table-wrap">
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>F1</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>Spurious edges</th>
+                </tr>
+              </thead>
+              <tbody id="metrics-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel" id="resources">
+          <div class="section-heading">
+            <p class="section-kicker">Resources</p>
+            <h2>Paper-linked material</h2>
           </div>
           <div class="repo-grid" id="repo-grid"></div>
         </section>
@@ -117,6 +166,74 @@
           <ul>${points}</ul>
         `;
         compareGrid.appendChild(card);
+      });
+
+      const caseCopy = byId("case-copy");
+      siteData.caseStudy.copy.forEach((paragraph) => {
+        const p = document.createElement("p");
+        p.textContent = paragraph;
+        caseCopy.appendChild(p);
+      });
+
+      const statGrid = byId("stat-grid");
+      siteData.caseStudy.stats.forEach((stat) => {
+        const card = document.createElement("article");
+        card.className = "stat-card";
+        card.innerHTML = `
+          <p class="card-tag">${stat.label}</p>
+          <h3>${stat.value}</h3>
+          <p>${stat.copy}</p>
+        `;
+        statGrid.appendChild(card);
+      });
+
+      const graphFlow = byId("graph-flow");
+      siteData.caseStudy.graphNodes.forEach((node, index) => {
+        const box = document.createElement("article");
+        box.className = "graph-node";
+        box.innerHTML = `<p class="card-tag">${node.tag}</p><h3>${node.title}</h3>`;
+        graphFlow.appendChild(box);
+
+        if (index < siteData.caseStudy.graphNodes.length - 1) {
+          const arrow = document.createElement("div");
+          arrow.className = "diagram-arrow";
+          arrow.textContent = "->";
+          graphFlow.appendChild(arrow);
+        }
+      });
+
+      const referenceEdges = byId("reference-edges");
+      siteData.caseStudy.referenceEdges.forEach((edge) => {
+        const li = document.createElement("li");
+        li.textContent = edge;
+        referenceEdges.appendChild(li);
+      });
+
+      const forbiddenEdges = byId("forbidden-edges");
+      siteData.caseStudy.forbiddenEdges.forEach((edge) => {
+        const li = document.createElement("li");
+        li.textContent = edge;
+        forbiddenEdges.appendChild(li);
+      });
+
+      const resultsCopy = byId("results-copy");
+      siteData.caseStudy.results.forEach((paragraph) => {
+        const p = document.createElement("p");
+        p.textContent = paragraph;
+        resultsCopy.appendChild(p);
+      });
+
+      const metricsBody = byId("metrics-body");
+      siteData.caseStudy.metrics.forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.algorithm}</td>
+          <td>${row.f1}</td>
+          <td>${row.precision}</td>
+          <td>${row.recall}</td>
+          <td>${row.spurious}</td>
+        `;
+        metricsBody.appendChild(tr);
       });
 
       const repoGrid = byId("repo-grid");
