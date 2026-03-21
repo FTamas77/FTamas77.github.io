@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Tamas Fekete | Causal AI</title>
+    <title>Tamas Fekete | Causal AI</title>
     <meta
       name="description"
-      content="Causal AI overview and selected publications by Dr. Tamas Fekete."
+      content="Personal site of Dr. Tamas Fekete focused on causal AI projects, research directions, and publications."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,244 +19,189 @@
   <body>
     <div class="page-shell">
       <header class="hero">
-        <p class="eyebrow" id="eyebrow">Causal AI</p>
-        <h1 id="hero-title">Dr. Tamas Fekete</h1>
-        <p class="hero-copy" id="hero-summary"></p>
+        <div class="hero-grid">
+          <div class="hero-copy-wrap">
+            <h1 id="hero-title"></h1>
+            <p class="hero-copy" id="hero-summary"></p>
+          </div>
+          <aside class="hero-side">
+            <article class="signal-card">
+              <p class="card-tag">Current focus</p>
+              <p class="signal-value" id="current-focus-title"></p>
+              <p class="signal-copy" id="current-focus-copy"></p>
+            </article>
+          </aside>
+        </div>
       </header>
 
       <main>
-        <section class="panel" id="overview">
+        <nav class="panel nav-panel" aria-label="Page sections">
+          <div class="chip-row" id="section-nav"></div>
+        </nav>
+
+        <section class="panel" id="about">
           <div class="section-heading">
-            <p class="section-kicker">Overview</p>
-            <h2>Why causal AI</h2>
+            <p class="section-kicker">About</p>
+            <h2>Causal AI work</h2>
           </div>
-          <div class="body-copy" id="overview-copy"></div>
+          <div class="body-copy" id="about-copy"></div>
+          <div class="focus-grid" id="focus-grid"></div>
         </section>
 
-        <section class="panel" id="diagram">
+        <section class="panel" id="selected-work">
           <div class="section-heading">
-            <p class="section-kicker">Flow</p>
-            <h2>From data to decisions</h2>
+            <p class="section-kicker">Selected Work</p>
+            <h2>Public projects and demos</h2>
           </div>
-          <div class="diagram-grid" id="diagram-grid"></div>
+          <div class="chip-row chip-row-secondary" id="work-nav"></div>
+          <div class="work-grid" id="work-grid"></div>
         </section>
 
-        <section class="panel" id="compare">
+        <section class="panel" id="current">
           <div class="section-heading">
-            <p class="section-kicker">Difference</p>
-            <h2>Predictive AI vs causal AI</h2>
+            <p class="section-kicker">Current</p>
+            <h2>Current causal AI directions</h2>
           </div>
-          <div class="compare-grid" id="compare-grid"></div>
-        </section>
-
-        <section class="panel" id="case-study">
-          <div class="section-heading">
-            <p class="section-kicker">Case Study</p>
-            <h2>Ontology-guided transport emissions analysis</h2>
-          </div>
-          <div class="body-copy" id="case-copy"></div>
-          <div class="stat-grid" id="stat-grid"></div>
-        </section>
-
-        <section class="panel" id="graph">
-          <div class="section-heading">
-            <p class="section-kicker">Graph</p>
-            <h2>Core causal structure</h2>
-          </div>
-          <div class="graph-flow" id="graph-flow"></div>
-          <div class="edge-grid">
-            <article class="edge-card">
-              <p class="card-tag">Reference edges</p>
-              <ul id="reference-edges"></ul>
-            </article>
-            <article class="edge-card">
-              <p class="card-tag">Forbidden edges</p>
-              <ul id="forbidden-edges"></ul>
-            </article>
-          </div>
-        </section>
-
-        <section class="panel" id="results">
-          <div class="section-heading">
-            <p class="section-kicker">Results</p>
-            <h2>Why ontology constraints matter</h2>
-          </div>
-          <div class="body-copy" id="results-copy"></div>
-          <div class="metrics-table-wrap">
-            <table class="metrics-table">
-              <thead>
-                <tr>
-                  <th>Algorithm</th>
-                  <th>F1</th>
-                  <th>Precision</th>
-                  <th>Recall</th>
-                  <th>Spurious edges</th>
-                </tr>
-              </thead>
-              <tbody id="metrics-body"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="panel" id="resources">
-          <div class="section-heading">
-            <p class="section-kicker">Resources</p>
-            <h2>Paper-linked material</h2>
-          </div>
-          <div class="repo-grid" id="repo-grid"></div>
+          <div class="body-copy" id="current-copy"></div>
+          <div class="current-grid" id="current-grid"></div>
         </section>
 
         <section class="panel" id="publications">
           <div class="section-heading">
             <p class="section-kicker">Publications</p>
-            <h2>Selected papers</h2>
+            <h2>Causal AI papers</h2>
           </div>
           <div class="publication-list" id="publication-list"></div>
         </section>
       </main>
 
-      <footer class="footer">
-        <p id="footer-note"></p>
-      </footer>
     </div>
 
     <script src="./site-data.js"></script>
     <script>
       const byId = (id) => document.getElementById(id);
+      const slugify = (value) =>
+        value
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "");
 
-      byId("eyebrow").textContent = siteData.hero.eyebrow;
+      const renderParagraphs = (targetId, paragraphs) => {
+        const target = byId(targetId);
+        paragraphs.forEach((paragraph) => {
+          const p = document.createElement("p");
+          p.textContent = paragraph;
+          target.appendChild(p);
+        });
+      };
+
+      const renderList = (targetId, items) => {
+        const target = byId(targetId);
+        items.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          target.appendChild(li);
+        });
+      };
+
       byId("hero-title").textContent = siteData.hero.title;
       byId("hero-summary").textContent = siteData.hero.summary;
-      byId("footer-note").textContent = siteData.footer;
+      byId("current-focus-title").textContent = siteData.hero.currentFocus.title;
+      byId("current-focus-copy").textContent = siteData.hero.currentFocus.copy;
 
-      const overviewCopy = byId("overview-copy");
-      siteData.overview.forEach((paragraph) => {
-        const p = document.createElement("p");
-        p.textContent = paragraph;
-        overviewCopy.appendChild(p);
+      renderParagraphs("about-copy", siteData.about);
+      renderParagraphs("current-copy", siteData.current.intro);
+
+      const sectionNav = byId("section-nav");
+      siteData.navigation.forEach((item) => {
+        const link = document.createElement("a");
+        link.className = "chip-link";
+        link.href = item.url;
+        link.textContent = item.label;
+        sectionNav.appendChild(link);
       });
 
-      const diagramGrid = byId("diagram-grid");
-      siteData.diagram.forEach((step, index) => {
+      const focusGrid = byId("focus-grid");
+      siteData.focusAreas.forEach((item) => {
         const card = document.createElement("article");
-        card.className = "diagram-card";
-        card.innerHTML = `
-          <p class="card-tag">${step.tag}</p>
-          <h3>${step.title}</h3>
-          <p>${step.copy}</p>
-        `;
-        diagramGrid.appendChild(card);
-
-        if (index < siteData.diagram.length - 1) {
-          const arrow = document.createElement("div");
-          arrow.className = "diagram-arrow";
-          arrow.textContent = "->";
-          diagramGrid.appendChild(arrow);
-        }
-      });
-
-      const compareGrid = byId("compare-grid");
-      siteData.compare.forEach((item) => {
-        const card = document.createElement("article");
-        card.className = "compare-card";
-        const points = item.points.map((point) => `<li>${point}</li>`).join("");
+        card.className = "focus-card";
         card.innerHTML = `
           <p class="card-tag">${item.tag}</p>
           <h3>${item.title}</h3>
-          <ul>${points}</ul>
+          <p>${item.copy}</p>
         `;
-        compareGrid.appendChild(card);
+        focusGrid.appendChild(card);
       });
 
-      const caseCopy = byId("case-copy");
-      siteData.caseStudy.copy.forEach((paragraph) => {
-        const p = document.createElement("p");
-        p.textContent = paragraph;
-        caseCopy.appendChild(p);
-      });
+      const workNav = byId("work-nav");
+      const workGrid = byId("work-grid");
+      siteData.selectedWork.forEach((item) => {
+        const workId = `work-${item.slug || slugify(item.title)}`;
 
-      const statGrid = byId("stat-grid");
-      siteData.caseStudy.stats.forEach((stat) => {
+        const navLink = document.createElement("a");
+        navLink.className = "chip-link subtle";
+        navLink.href = `#${workId}`;
+        navLink.textContent = item.title;
+        workNav.appendChild(navLink);
+
         const card = document.createElement("article");
-        card.className = "stat-card";
-        card.innerHTML = `
-          <p class="card-tag">${stat.label}</p>
-          <h3>${stat.value}</h3>
-          <p>${stat.copy}</p>
-        `;
-        statGrid.appendChild(card);
-      });
+        card.className = "work-card";
+        card.id = workId;
 
-      const graphFlow = byId("graph-flow");
-      siteData.caseStudy.graphNodes.forEach((node, index) => {
-        const box = document.createElement("article");
-        box.className = "graph-node";
-        box.innerHTML = `<p class="card-tag">${node.tag}</p><h3>${node.title}</h3>`;
-        graphFlow.appendChild(box);
-
-        if (index < siteData.caseStudy.graphNodes.length - 1) {
-          const arrow = document.createElement("div");
-          arrow.className = "diagram-arrow";
-          arrow.textContent = "->";
-          graphFlow.appendChild(arrow);
+        let visualMarkup = "";
+        if (item.image && item.image.src) {
+          visualMarkup = `
+            <div class="work-visual image">
+              <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy" />
+            </div>
+          `;
         }
-      });
 
-      const referenceEdges = byId("reference-edges");
-      siteData.caseStudy.referenceEdges.forEach((edge) => {
-        const li = document.createElement("li");
-        li.textContent = edge;
-        referenceEdges.appendChild(li);
-      });
+        const links = item.links
+          .map((link) => {
+            const target = link.external ? ' target="_blank" rel="noreferrer"' : "";
+            return `<a href="${link.url}"${target}>${link.label}</a>`;
+          })
+          .join("");
 
-      const forbiddenEdges = byId("forbidden-edges");
-      siteData.caseStudy.forbiddenEdges.forEach((edge) => {
-        const li = document.createElement("li");
-        li.textContent = edge;
-        forbiddenEdges.appendChild(li);
-      });
-
-      const resultsCopy = byId("results-copy");
-      siteData.caseStudy.results.forEach((paragraph) => {
-        const p = document.createElement("p");
-        p.textContent = paragraph;
-        resultsCopy.appendChild(p);
-      });
-
-      const metricsBody = byId("metrics-body");
-      siteData.caseStudy.metrics.forEach((row) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${row.algorithm}</td>
-          <td>${row.f1}</td>
-          <td>${row.precision}</td>
-          <td>${row.recall}</td>
-          <td>${row.spurious}</td>
-        `;
-        metricsBody.appendChild(tr);
-      });
-
-      const repoGrid = byId("repo-grid");
-      siteData.repositories.forEach((repo) => {
-        const card = document.createElement("article");
-        card.className = "repo-card";
         card.innerHTML = `
-          <p class="card-tag">${repo.tag}</p>
-          <h3>${repo.name}</h3>
-          <p>${repo.copy}</p>
-          <a href="${repo.url}" target="_blank" rel="noreferrer">${repo.linkLabel}</a>
+          ${visualMarkup}
+          <div class="work-body">
+            <h3>${item.title}</h3>
+            <p class="work-summary">${item.summary}</p>
+            <p class="work-summary">${item.detail}</p>
+            <div class="link-row">${links}</div>
+          </div>
         `;
-        repoGrid.appendChild(card);
+        workGrid.appendChild(card);
+      });
+
+      const currentGrid = byId("current-grid");
+      siteData.current.items.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "current-card";
+        card.innerHTML = `
+          <p class="card-tag">${item.tag}</p>
+          <h3>${item.title}</h3>
+          <p>${item.copy}</p>
+        `;
+        currentGrid.appendChild(card);
       });
 
       const publicationList = byId("publication-list");
       siteData.publications.forEach((paper) => {
         const card = document.createElement("article");
         card.className = "publication-card";
+
+        const titleMarkup = paper.url
+          ? `<h3><a href="${paper.url}" target="_blank" rel="noreferrer">${paper.title}</a></h3>`
+          : `<h3>${paper.title}</h3>`;
+
         card.innerHTML = `
           <p class="publication-meta">${paper.meta}</p>
-          <h3>${paper.title}</h3>
+          ${titleMarkup}
           <p>${paper.authors}</p>
+          <p class="publication-note">${paper.note}</p>
         `;
         publicationList.appendChild(card);
       });

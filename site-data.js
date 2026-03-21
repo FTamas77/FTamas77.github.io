@@ -1,213 +1,188 @@
 const siteData = {
+  navigation: [
+    {
+      label: "Public work",
+      url: "#about"
+    },
+    {
+      label: "Projects",
+      url: "#selected-work"
+    },
+    {
+      label: "Current",
+      url: "#current"
+    },
+    {
+      label: "Publications",
+      url: "#publications"
+    }
+  ],
   hero: {
-    eyebrow: "Causal AI",
     title: "Dr. Tamas Fekete",
     summary:
-      "Research on causal AI for intervention, explanation, and decision support in sustainability, transportation, and manufacturing."
+      "This site is focused on my public causal AI work, including repositories, research directions, and related publications.",
+    currentFocus: {
+      title: "Causal AI for sustainability and decision support",
+      copy:
+        "The main focus here is causal discovery, causal inference, and intervention-oriented analysis in transportation, manufacturing, and related applied domains."
+    }
   },
-  overview: [
-    "Causal AI is useful when the goal is not only to predict what will happen, but to understand what changes outcomes and which actions are likely to work under real-world constraints.",
-    "This direction is developed across my PhD thesis, Causal AI for Smart Decision-Making: Driving Sustainability in Urban Mobility and Industry, and the related papers on manufacturing sustainability, urban transport, and ontology-guided causal discovery and inference for transportation emissions."
+  about: [
+    "This page collects publicly available work related to my causal AI research, with short context and links to the relevant repository or demo."
   ],
-  diagram: [
+  focusAreas: [
     {
-      tag: "1",
-      title: "Observation",
+      tag: "Causal discovery",
+      title: "Learning defensible causal structure",
       copy:
-        "Start from data, variables, and domain context rather than from prediction alone."
+        "Studying how causal graphs can be learned from data in a way that is useful for explanation, intervention, and decision support."
     },
     {
-      tag: "2",
-      title: "Causal structure",
+      tag: "Causal inference",
+      title: "Estimating effects beyond prediction",
       copy:
-        "Use causal graphs and structured knowledge to separate plausible drivers from spurious correlations."
+        "Using causal methods to ask what changes outcomes, not just what patterns appear in observational data."
     },
     {
-      tag: "3",
-      title: "Decision support",
+      tag: "Applications",
+      title: "Transport and manufacturing use cases",
       copy:
-        "Estimate interventions, compare scenarios, and support action under uncertainty."
+        "Applying causal AI to emissions, energy, cost, and sustainability questions in real applied settings."
     }
   ],
-  compare: [
+  selectedWork: [
     {
-      tag: "Predictive AI",
-      title: "What is likely to happen?",
-      points: [
-        "Optimized for forecasting from patterns in data",
-        "Strong for classification and prediction tasks",
-        "Limited when the question is about action or intervention"
+      slug: "theses-2025",
+      title: "Theses_2025",
+      summary:
+        "A public repository used to demonstrate thesis-related material in an educational setting.",
+      detail:
+        "This is useful as a teaching and reference artifact when explaining the structure of research work, examples, and supporting material.",
+      links: [
+        {
+          label: "Open repository",
+          url: "https://github.com/FTamas77/Theses_2025",
+          external: true
+        }
       ]
     },
     {
-      tag: "Causal AI",
-      title: "What happens if we change something?",
-      points: [
-        "Focuses on causes, interventions, and counterfactuals",
-        "Uses assumptions, structure, and domain knowledge explicitly",
-        "Better aligned with decision support and policy questions"
+      slug: "streamlit-app",
+      title: "streamlit_app",
+      summary:
+        "An educational causal AI pipeline demo built to make intervention-oriented workflows easier to inspect and discuss.",
+      detail:
+        "The repository is paired with a public Streamlit deployment, so it works both as source code and as a live demonstrator.",
+      links: [
+        {
+          label: "Open repository",
+          url: "https://github.com/FTamas77/streamlit_app",
+          external: true
+        },
+        {
+          label: "Open live demo",
+          url: "https://causalai.streamlit.app/",
+          external: true
+        }
+      ]
+    },
+    {
+      slug: "causal-image-demo",
+      title: "causal-image-demo",
+      summary:
+        "A research-oriented prototype exploring causal ideas in image-related settings.",
+      detail:
+        "It represents the type of exploratory work that may not become a paper immediately, but still shows how research questions are tested in public and iterated in code.",
+      links: [
+        {
+          label: "Open repository",
+          url: "https://github.com/FTamas77/causal-image-demo",
+          external: true
+        }
       ]
     }
   ],
-  caseStudy: {
-    copy: [
-      "A concrete example is the vehicle emissions study behind the paper Ontology-guided causal discovery and inference for reducing CO2 emissions in transportation. The dataset comes from the Hungarian Ministry of Construction and Transport and contains technical inspection records for passenger vehicles.",
-      "The analysis combines causal discovery, ontology constraints, and causal inference to study how cylinder capacity, engine power, and other technical attributes drive CO2 emissions. The point is not only to find correlations, but to remove physically implausible edges and support counterfactual and policy-oriented questions."
+  current: {
+    intro: [
+      "Short notes on the causal AI directions that are currently most relevant in my work."
     ],
-    stats: [
+    items: [
       {
-        label: "Dataset",
-        value: "463,568 vehicles",
-        copy: "Cross-sectional passenger vehicle records from technical inspections."
+        tag: "Current direction",
+        title: "Ontology-guided causal discovery",
+        copy:
+          "A current line of work uses ontology constraints and domain knowledge to improve causal discovery and reduce implausible graph structure."
       },
       {
-        label: "Scope",
-        value: "Hungary, 2023",
-        copy: "Inspection data covering vehicle categories M1, M1G, N1, and N1G."
+        tag: "Application area",
+        title: "Transport and manufacturing case studies",
+        copy:
+          "The main application areas here are transportation emissions, urban mobility, manufacturing sustainability, and industrial decision support."
       },
       {
-        label: "Goal",
-        value: "CO2 causal drivers",
-        copy: "Estimate which technical factors materially influence emissions."
-      }
-    ],
-    graphNodes: [
-      {
-        tag: "Driver",
-        title: "Cylinder capacity"
-      },
-      {
-        tag: "Mediator",
-        title: "Engine power"
-      },
-      {
-        tag: "Outcome",
-        title: "CO2 emissions"
-      }
-    ],
-    referenceEdges: [
-      "Cylinder capacity -> Engine power",
-      "Cylinder capacity -> CO2 emissions",
-      "Engine power -> CO2 emissions"
-    ],
-    forbiddenEdges: [
-      "Passing noise -> CO2 emissions",
-      "CO2 emissions -> Cylinder capacity"
-    ],
-    results: [
-      "The key result reported in the paper is that ontology constraints improved F1 from 0.67 to 0.78 and removed spurious edges. In practice this means the graph becomes more defensible, not just statistically convenient.",
-      "The same setup also supports causal effect estimation and what-if analysis, for example testing how engine specifications or specific power relate to emissions under a causal interpretation rather than a purely predictive one."
-    ],
-    metrics: [
-      {
-        algorithm: "PC baseline",
-        f1: "0.67",
-        precision: "0.65",
-        recall: "0.69",
-        spurious: "2"
-      },
-      {
-        algorithm: "FCI + ontology",
-        f1: "0.78",
-        precision: "0.82",
-        recall: "0.75",
-        spurious: "0"
-      },
-      {
-        algorithm: "GES",
-        f1: "0.71",
-        precision: "0.73",
-        recall: "0.69",
-        spurious: "1"
+        tag: "Research note",
+        title: "Ontology-guided transport research",
+        copy:
+          "One active line of work connects domain knowledge, ontology constraints, and causal discovery for transportation emissions, with the broader goal of making structured AI systems more defensible."
       }
     ]
   },
-  repositories: [
-    {
-      tag: "Link in paper",
-      name: "Causality",
-      copy:
-        "Vehicle emissions dataset and reproduction guide referenced in the ontology-guided transportation paper.",
-      url: "https://github.com/FTamas77/Causality/blob/develop/datasets/vehicles/README.md",
-      linkLabel: "Open dataset README"
-    },
-    {
-      tag: "Python GUI",
-      name: "cross-sectional-proc",
-      copy:
-        "Interactive Python GUI with DoWhy-based inference, result comparison, and publication-oriented visual analysis.",
-      url: "https://github.com/FTamas77/Causality/blob/develop/cross-sectional-proc/README.md",
-      linkLabel: "Open GUI README"
-    },
-    {
-      tag: "C++ implementation",
-      name: "CPPCausality",
-      copy:
-        "Ontology-guided FCI implementation for larger-scale discovery and faster execution.",
-      url: "https://github.com/FTamas77/CPPCausality",
-      linkLabel: "Open repository"
-    },
-    {
-      tag: "Feature selection",
-      name: "feature-selection",
-      copy:
-        "Supporting material for selecting relevant variables before causal analysis.",
-      url: "https://github.com/FTamas77/Causality/blob/develop/feature-selection/README.md",
-      linkLabel: "Open README"
-    },
-    {
-      tag: "Time series",
-      name: "time-series-proc",
-      copy:
-        "Time-series analysis path linked from the same Causality repository.",
-      url: "https://github.com/FTamas77/Causality/blob/develop/time-series-proc/README.md",
-      linkLabel: "Open README"
-    }
-  ],
   publications: [
     {
       meta: "Procedia CIRP, 2024",
       title:
         "Leveraging causal machine learning for sustainable automotive industry: Analyzing factors influencing CO2 emissions",
-      authors: "Vahid Menu Nesro, Tamas Fekete, Hendro Wicaksono"
+      authors: "Vahid Menu Nesro, Tamas Fekete, Hendro Wicaksono",
+      note:
+        "Causal machine learning applied to automotive CO2 emissions to identify the factors that most strongly influence outcomes."
     },
     {
       meta: "IEEE IEEM, 2024",
       title:
         "Causal AI in the Automotive Industry: Impact Analysis Through Carbon Emission Case Study",
-      authors: "Syed Muhammad Ali Hashmi, Tamas Fekete, Hendro Wicaksono"
+      authors: "Syed Muhammad Ali Hashmi, Tamas Fekete, Hendro Wicaksono",
+      note:
+        "Conference paper on causal impact analysis in an automotive carbon-emissions case study."
     },
     {
       meta: "Procedia Computer Science, 2025",
       title:
         "From theory to practice: Implementing causal AI in manufacturing for sustainability",
-      authors: "Heonyoung Jeong, Tamas Fekete, Atit Bashyal, Hendro Wicaksono"
+      authors: "Heonyoung Jeong, Tamas Fekete, Atit Bashyal, Hendro Wicaksono",
+      note:
+        "Focuses on practical deployment questions for causal AI in manufacturing sustainability contexts."
     },
     {
       meta: "Sustainable Cities and Society, 2025",
       title:
         "Leveraging causal AI to uncover the dynamics in sustainable urban transport: A bike sharing time-series study",
-      authors: "Tamas Fekete, Girum Mengistu, Hendro Wicaksono"
+      authors: "Tamas Fekete, Girum Mengistu, Hendro Wicaksono",
+      note:
+        "Time-series causal analysis of bike-sharing dynamics for sustainable urban transport."
     },
     {
-      meta: "PhD Thesis, 2025",
+      meta: "PhD Thesis, Jacobs University Bremen, 2025",
       title:
         "Causal AI for Smart Decision-Making: Driving Sustainability in Urban Mobility and Industry",
-      authors: "Tamas Fekete"
+      authors: "Tamas Fekete",
+      note:
+        "Thesis bringing together the broader causal AI agenda across transportation, manufacturing, and sustainability."
     },
     {
       meta: "International Journal of Production Research, 2025",
       title:
         "A comprehensive causal AI framework for analysing factors affecting energy consumption and costs in customised manufacturing",
-      authors: "Tamas Fekete, Isabella Marquez Petrone, Hendro Wicaksono"
+      authors: "Tamas Fekete, Isabella Marquez Petrone, Hendro Wicaksono",
+      note:
+        "Journal article on a broader causal AI framework for energy and cost analysis in customised manufacturing."
     },
     {
       meta: "International Journal of Sustainable Transportation, 2025",
       title:
         "Ontology-guided causal discovery and inference for reducing CO2 emissions in transportation",
-      authors: "Tamas Fekete, Hendro Wicaksono"
+      authors: "Tamas Fekete, Hendro Wicaksono",
+      note:
+        "Ontology-guided causal discovery and inference for transportation emissions, with domain constraints used to improve graph quality."
     }
-  ],
-  footer:
-    "Overview of causal AI research directions, an ontology-guided transport case study, linked resources, and selected publications."
+  ]
 };
