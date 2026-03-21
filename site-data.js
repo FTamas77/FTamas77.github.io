@@ -52,6 +52,36 @@ const siteData = {
   ],
   selectedWork: [
     {
+      slug: "cppcausality",
+      title: "CPPCausality",
+      summary:
+        "High-performance C++ implementation of ontology-guided FCI for the transportation emissions work.",
+      detail:
+        "Focused on native ontology constraints and faster large-scale causal discovery.",
+      links: [
+        {
+          label: "Open repository",
+          url: "https://github.com/FTamas77/CPPCausality",
+          external: true
+        }
+      ]
+    },
+    {
+      slug: "causality",
+      title: "Causality",
+      summary:
+        "Main Python repository for the ontology-guided transportation work.",
+      detail:
+        "Includes dataset documentation, GUI-based analysis, and causal discovery and inference workflows.",
+      links: [
+        {
+          label: "Open repository",
+          url: "https://github.com/FTamas77/Causality",
+          external: true
+        }
+      ]
+    },
+    {
       slug: "theses-2025",
       title: "Theses_2025",
       summary:

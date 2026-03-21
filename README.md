@@ -2,8 +2,6 @@
 
 Static GitHub Pages site for the personal homepage of Dr. Tamas Fekete.
 
-The site is designed as a compact professional profile that can be linked from a CV and updated whenever a repository, demo, or research artifact becomes public.
-
 ## Files
 
 - `index.html` - page structure and small rendering script
