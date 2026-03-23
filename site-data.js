@@ -164,7 +164,8 @@ const siteData = {
         "Leveraging causal machine learning for sustainable automotive industry: Analyzing factors influencing CO2 emissions",
       authors: "Vahid Menu Nesro, Tamas Fekete, Hendro Wicaksono",
       note:
-        "Causal machine learning applied to automotive CO2 emissions to identify the factors that most strongly influence outcomes."
+        "Causal machine learning applied to automotive CO2 emissions to identify the factors that most strongly influence outcomes.",
+      url: "https://www.sciencedirect.com/science/article/pii/S2212827124012241"
     },
     {
       meta: "IEEE IEEM, 2024",
@@ -172,7 +173,8 @@ const siteData = {
         "Causal AI in the Automotive Industry: Impact Analysis Through Carbon Emission Case Study",
       authors: "Syed Muhammad Ali Hashmi, Tamas Fekete, Hendro Wicaksono",
       note:
-        "Conference paper on causal impact analysis in an automotive carbon-emissions case study."
+        "Conference paper on causal impact analysis in an automotive carbon-emissions case study.",
+      url: "https://ieeexplore.ieee.org/abstract/document/10857175"
     },
     {
       meta: "Procedia Computer Science, 2025",
@@ -180,7 +182,8 @@ const siteData = {
         "From theory to practice: Implementing causal AI in manufacturing for sustainability",
       authors: "Heonyoung Jeong, Tamas Fekete, Atit Bashyal, Hendro Wicaksono",
       note:
-        "Focuses on practical deployment questions for causal AI in manufacturing sustainability contexts."
+        "Focuses on practical deployment questions for causal AI in manufacturing sustainability contexts.",
+      url: "http://dx.doi.org/10.1016/j.procs.2025.01.211"
     },
     {
       meta: "Sustainable Cities and Society, 2025",
@@ -188,7 +191,8 @@ const siteData = {
         "Leveraging causal AI to uncover the dynamics in sustainable urban transport: A bike sharing time-series study",
       authors: "Tamas Fekete, Girum Mengistu, Hendro Wicaksono",
       note:
-        "Time-series causal analysis of bike-sharing dynamics for sustainable urban transport."
+        "Time-series causal analysis of bike-sharing dynamics for sustainable urban transport.",
+      url: "http://dx.doi.org/10.1016/j.scs.2025.106240"
     },
     {
       meta: "PhD Thesis, Jacobs University Bremen, 2025",
@@ -196,7 +200,8 @@ const siteData = {
         "Causal AI for Smart Decision-Making: Driving Sustainability in Urban Mobility and Industry",
       authors: "Tamas Fekete",
       note:
-        "Thesis bringing together the broader causal AI agenda across transportation, manufacturing, and sustainability."
+        "Thesis bringing together the broader causal AI agenda across transportation, manufacturing, and sustainability.",
+      url: "https://opus.constructor.university/frontdoor/index/index/docId/1307"
     },
     {
       meta: "International Journal of Production Research, 2025",
@@ -204,7 +209,8 @@ const siteData = {
         "A comprehensive causal AI framework for analysing factors affecting energy consumption and costs in customised manufacturing",
       authors: "Tamas Fekete, Isabella Marquez Petrone, Hendro Wicaksono",
       note:
-        "Journal article on a broader causal AI framework for energy and cost analysis in customised manufacturing."
+        "Journal article on a broader causal AI framework for energy and cost analysis in customised manufacturing.",
+      url: "http://dx.doi.org/10.1080/00207543.2025.2580541"
     },
     {
       meta: "International Journal of Sustainable Transportation, 2025",
@@ -212,7 +218,8 @@ const siteData = {
         "Ontology-guided causal discovery and inference for reducing CO2 emissions in transportation",
       authors: "Tamas Fekete, Hendro Wicaksono",
       note:
-        "Ontology-guided causal discovery and inference for transportation emissions, with domain constraints used to improve graph quality."
+        "Ontology-guided causal discovery and inference for transportation emissions, with domain constraints used to improve graph quality.",
+      url: "http://dx.doi.org/10.1080/15568318.2025.2588608"
     },
     {
       meta: "Procedia Computer Science, 2026",
