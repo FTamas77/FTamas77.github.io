@@ -213,6 +213,15 @@ const siteData = {
       authors: "Tamas Fekete, Hendro Wicaksono",
       note:
         "Ontology-guided causal discovery and inference for transportation emissions, with domain constraints used to improve graph quality."
+    },
+    {
+      meta: "Procedia Computer Science, 2026",
+      title:
+        "Toward Explainable and Sustainable Manufacturing: Benchmarking Causal Discovery on Process Duration and Energy Use",
+      authors: "Merin Vinod Jacob, Tamas Fekete, Hendro Wicaksono",
+      note:
+        "Benchmarks causal discovery methods for process duration and energy use in manufacturing, with emphasis on explainability and sustainability.",
+      url: "http://dx.doi.org/10.1016/j.procs.2026.02.054"
     }
   ]
 };
