@@ -150,16 +150,28 @@ h1, h2, h3 {
 }
 
 .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 16px;
-  padding: 6px 16px;
+  padding: 10px 20px;
   border: 1px solid var(--border-hover);
-  border-radius: 999px;
+  border-radius: 16px;
   background: var(--accent-dim);
   color: var(--accent);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  gap: 2px;
+}
+
+.hero-tagline {
+  display: block;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 2px;
 }
 
 .hero-credential {

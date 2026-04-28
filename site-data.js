@@ -1,7 +1,7 @@
 const siteData = {
   owner: {
     name: "Dr. Tamas Fekete",
-    tagline: "Causal AI Researcher & Engineer",
+    tagline: "Causal AI Researcher · Industrial Software Engineer",
     credential: "Postdoctoral Researcher",
     affiliation: {
       group: {

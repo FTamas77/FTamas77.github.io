@@ -792,6 +792,10 @@
          ------------------------------------------------------------------ */
       const badge = $("hero-badge");
       badge.textContent = siteData.owner.name;
+      const tagline = document.createElement("span");
+      tagline.className = "hero-tagline";
+      tagline.textContent = siteData.owner.tagline;
+      badge.appendChild(tagline);
       const cred = document.createElement("span");
       cred.className = "hero-credential";
       const aff = siteData.owner.affiliation;
