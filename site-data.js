@@ -71,7 +71,8 @@ const siteData = {
   ],
 
   whyItMatters: {
-    intro: "Even with strong instrumentation and data availability, teams still struggle with slow root-cause analysis, wrong intervention focus, hidden trade-offs, and unmodeled operational drivers. Correlations highlight patterns, but they do not show which factors actually drive the outcome.",
+    intro:
+      "Even with strong instrumentation and data availability, teams still struggle with slow root-cause analysis, wrong intervention focus, hidden trade-offs, and unmodeled operational drivers. Correlations highlight patterns, but they do not show which factors actually drive the outcome.",
     painPoints: [
       {
         icon: "search",
@@ -96,29 +97,37 @@ const siteData = {
     ],
     genaiPositioning: {
       title: "GenAI and Causal AI — different roles",
-      causalRole: "Causal AI is the decision-support engine: it builds the causal model, evaluates candidate actions, and identifies realistic interventions under real-world constraints.",
-      genaiRole: "GenAI is the interface layer: it helps users explore, explain, and work with results — while staying grounded in validated causal outputs.",
+      causalRole:
+        "Causal AI is the decision-support engine: it builds the causal model, evaluates candidate actions, and identifies realistic interventions under real-world constraints.",
+      genaiRole:
+        "GenAI is the interface layer: it helps users explore, explain, and work with results — while staying grounded in validated causal outputs.",
     },
     examples: [
       {
         tag: "Manufacturing",
         title: "Scrap instability driven by workflow factors",
-        symptom: "Recurring scrap peaks and rising downtime despite stable primary signals.",
+        symptom:
+          "Recurring scrap peaks and rising downtime despite stable primary signals.",
         correlationAction: "Reduce speed by 8%",
         correlationResult: "Scrap 4.9% → 4.6%, throughput −6%",
-        causalAction: "Improve handover quality, onboarding, and override policy",
+        causalAction:
+          "Improve handover quality, onboarding, and override policy",
         causalResult: "Scrap 4.9% → 2.2%, downtime −12%, throughput +4%",
-        insight: "The causal model reveals that speed is a downstream consequence of shift pressure — the real lever is in process discipline and operator context.",
+        insight:
+          "The causal model reveals that speed is a downstream consequence of shift pressure — the real lever is in process discipline and operator context.",
       },
       {
         tag: "Industrial Software",
         title: "Outage variance driven by release workflow",
-        symptom: "High outage variance for the same build, influenced by rollout timing and on-call load.",
+        symptom:
+          "High outage variance for the same build, influenced by rollout timing and on-call load.",
         correlationAction: "Increase timeout or add retries",
         correlationResult: "Outage 3.2 → 2.9 hrs/week, slower UX",
-        causalAction: "Rollout window policy, pre-checks, workload spike reduction",
+        causalAction:
+          "Rollout window policy, pre-checks, workload spike reduction",
         causalResult: "Outage 3.2 → 1.1 hrs/week, MTTR −35%",
-        insight: "The causal model shows that timeout and retry are intermediate variables — the real driver is on-call workload and release workflow context.",
+        insight:
+          "The causal model shows that timeout and retry are intermediate variables — the real driver is on-call workload and release workflow context.",
       },
     ],
   },
