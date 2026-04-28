@@ -1066,6 +1066,145 @@ h1, h2, h3 {
   height: 90px;
 }
 
+/* Federated diagram */
+.federated-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.fed-sites {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fed-site {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  min-width: 100px;
+}
+
+.fed-site-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.fed-site-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.fed-site:hover .fed-site-icon {
+  border-color: var(--border-hover);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.fed-site-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.fed-site-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.fed-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.fed-flow-arrows {
+  color: var(--text-muted);
+}
+
+.fed-flow-arrows svg {
+  width: 200px;
+  height: 40px;
+}
+
+.fed-flow-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border: 1px dashed var(--border-hover);
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.fed-flow-label svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.fed-center {
+  margin-top: 4px;
+}
+
+.fed-center-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 20px 28px;
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-md);
+  background: var(--accent-dim);
+  transition: all var(--transition);
+}
+
+.fed-center-card:hover {
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.fed-center-icon {
+  color: var(--accent);
+}
+
+.fed-center-icon svg {
+  width: 44px;
+  height: 44px;
+}
+
+.fed-center-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.fed-center-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .featured-card {
@@ -1183,5 +1322,21 @@ h1, h2, h3 {
   .integ-card {
     min-width: 0;
     flex: 1;
+  }
+
+  .fed-sites {
+    gap: 12px;
+  }
+
+  .fed-site {
+    min-width: 80px;
+  }
+
+  .fed-flow-arrows svg {
+    width: 140px;
+  }
+
+  .fed-center-card {
+    padding: 16px 20px;
   }
 }

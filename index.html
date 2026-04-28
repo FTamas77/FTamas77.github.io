@@ -117,41 +117,189 @@
         <!-- ===== Visual: Causal AI Pipeline ===== -->
         <div class="diagram-block reveal">
           <h3 class="diagram-title">How Causal AI Works</h3>
-          <p class="diagram-desc">Start with a question, narrow the search space, arrive at evidence.</p>
+          <p class="diagram-desc">
+            Start with a question, narrow the search space, arrive at evidence.
+          </p>
           <div class="pipeline">
             <div class="pipeline-step">
               <div class="step-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="18" r="9" stroke="currentColor" stroke-width="2"/><path d="M26 24l6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><text x="20" y="21" text-anchor="middle" fill="currentColor" font-size="12" font-weight="700">?</text></svg>
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="20"
+                    cy="18"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M26 24l6 6"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                  <text
+                    x="20"
+                    y="21"
+                    text-anchor="middle"
+                    fill="currentColor"
+                    font-size="12"
+                    font-weight="700"
+                  >
+                    ?
+                  </text>
+                </svg>
               </div>
               <span class="step-label">Question</span>
               <span class="step-sub">What drives this outcome?</span>
             </div>
             <div class="pipeline-arrow">
-              <svg viewBox="0 0 32 16" fill="none"><path d="M0 8h24M20 3l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 32 16" fill="none">
+                <path
+                  d="M0 8h24M20 3l6 5-6 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
             <div class="pipeline-step">
               <div class="step-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" opacity=".25"/><circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.5" opacity=".5"/><circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="2"/></svg>
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="14"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".25"
+                  />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".5"
+                  />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
               </div>
               <span class="step-label">Narrow</span>
               <span class="step-sub">Reduce the search space</span>
             </div>
             <div class="pipeline-arrow">
-              <svg viewBox="0 0 32 16" fill="none"><path d="M0 8h24M20 3l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 32 16" fill="none">
+                <path
+                  d="M0 8h24M20 3l6 5-6 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
             <div class="pipeline-step">
               <div class="step-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="20" r="4" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="28" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M14 18l13-4M14 22l13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="25,13 28,14.5 25,16" fill="currentColor" opacity=".7"/><polygon points="25,27 28,28.5 25,30" fill="currentColor" opacity=".7"/></svg>
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="10"
+                    cy="20"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="30"
+                    cy="12"
+                    r="3.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="30"
+                    cy="28"
+                    r="3.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M14 18l13-4M14 22l13 4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <polygon
+                    points="25,13 28,14.5 25,16"
+                    fill="currentColor"
+                    opacity=".7"
+                  />
+                  <polygon
+                    points="25,27 28,28.5 25,30"
+                    fill="currentColor"
+                    opacity=".7"
+                  />
+                </svg>
               </div>
               <span class="step-label">Causal Structure</span>
               <span class="step-sub">Identify causal links</span>
             </div>
             <div class="pipeline-arrow">
-              <svg viewBox="0 0 32 16" fill="none"><path d="M0 8h24M20 3l6 5-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 32 16" fill="none">
+                <path
+                  d="M0 8h24M20 3l6 5-6 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
             <div class="pipeline-step accent-step">
               <div class="step-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6l12 7v14l-12 7-12-7V13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 20v13M8 13l12 7 12-7" stroke="currentColor" stroke-width="1.5" opacity=".5"/><circle cx="20" cy="20" r="3" fill="currentColor" opacity=".4"/></svg>
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6l12 7v14l-12 7-12-7V13z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M20 20v13M8 13l12 7 12-7"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".5"
+                  />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="3"
+                    fill="currentColor"
+                    opacity=".4"
+                  />
+                </svg>
               </div>
               <span class="step-label">Evidence</span>
               <span class="step-sub">Actionable insight</span>
@@ -162,19 +310,75 @@
         <!-- ===== Visual: Industrial Integration ===== -->
         <div class="diagram-block reveal">
           <h3 class="diagram-title">Industrial Integration Path</h3>
-          <p class="diagram-desc">How causal models connect to real plant systems and operator workflows.</p>
+          <p class="diagram-desc">
+            How causal models connect to real plant systems and operator
+            workflows.
+          </p>
           <div class="integration-diagram">
             <div class="integ-col">
               <div class="integ-card">
                 <span class="integ-icon">
-                  <svg viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 11h22" stroke="currentColor" stroke-width="1.2" opacity=".4"/><circle cx="8" cy="18" r="1.5" fill="currentColor" opacity=".5"/><circle cx="14" cy="16" r="1.5" fill="currentColor" opacity=".5"/><circle cx="20" cy="19" r="1.5" fill="currentColor" opacity=".5"/></svg>
+                  <svg viewBox="0 0 28 28" fill="none">
+                    <rect
+                      x="3"
+                      y="5"
+                      width="22"
+                      height="18"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M3 11h22"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                      opacity=".4"
+                    />
+                    <circle
+                      cx="8"
+                      cy="18"
+                      r="1.5"
+                      fill="currentColor"
+                      opacity=".5"
+                    />
+                    <circle
+                      cx="14"
+                      cy="16"
+                      r="1.5"
+                      fill="currentColor"
+                      opacity=".5"
+                    />
+                    <circle
+                      cx="20"
+                      cy="19"
+                      r="1.5"
+                      fill="currentColor"
+                      opacity=".5"
+                    />
+                  </svg>
                 </span>
                 <span class="integ-label">Process Data</span>
                 <span class="integ-sub">Sensors, PLC, historian</span>
               </div>
               <div class="integ-card">
                 <span class="integ-icon">
-                  <svg viewBox="0 0 28 28" fill="none"><rect x="4" y="3" width="20" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M9 10h10M9 14h7M9 18h10" stroke="currentColor" stroke-width="1.2" opacity=".5"/></svg>
+                  <svg viewBox="0 0 28 28" fill="none">
+                    <rect
+                      x="4"
+                      y="3"
+                      width="20"
+                      height="22"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M9 10h10M9 14h7M9 18h10"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                      opacity=".5"
+                    />
+                  </svg>
                 </span>
                 <span class="integ-label">Domain Ontology</span>
                 <span class="integ-sub">Expert constraints</span>
@@ -182,14 +386,46 @@
             </div>
             <div class="integ-arrows">
               <svg viewBox="0 0 40 100" fill="none">
-                <path d="M0 25h16c8 0 8 8 8 16v18c0 8 0 16-8 16H0" stroke="currentColor" stroke-width="1.5" opacity=".3"/>
-                <path d="M16 75l6-4v8z" fill="currentColor" opacity=".4"/>
+                <path
+                  d="M0 25h16c8 0 8 8 8 16v18c0 8 0 16-8 16H0"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  opacity=".3"
+                />
+                <path d="M16 75l6-4v8z" fill="currentColor" opacity=".4" />
               </svg>
             </div>
             <div class="integ-col">
               <div class="integ-card integ-center">
                 <span class="integ-icon integ-icon-accent">
-                  <svg viewBox="0 0 28 28" fill="none"><circle cx="8" cy="14" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M11 12l6-3M11 16l6 3" stroke="currentColor" stroke-width="1.2"/></svg>
+                  <svg viewBox="0 0 28 28" fill="none">
+                    <circle
+                      cx="8"
+                      cy="14"
+                      r="3.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="20"
+                      cy="8"
+                      r="3"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="20"
+                      cy="20"
+                      r="3"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M11 12l6-3M11 16l6 3"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                  </svg>
                 </span>
                 <span class="integ-label">Causal Model</span>
                 <span class="integ-sub">Discovery + Inference</span>
@@ -197,24 +433,123 @@
             </div>
             <div class="integ-arrows">
               <svg viewBox="0 0 40 100" fill="none">
-                <path d="M40 50H24c-8 0-8-8-8-16V20M40 50H24c-8 0-8 8-8 16v14" stroke="currentColor" stroke-width="1.5" opacity=".3"/>
-                <path d="M24 20l-6 4v-8zM24 80l-6-4v8z" fill="currentColor" opacity=".4"/>
+                <path
+                  d="M40 50H24c-8 0-8-8-8-16V20M40 50H24c-8 0-8 8-8 16v14"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  opacity=".3"
+                />
+                <path
+                  d="M24 20l-6 4v-8zM24 80l-6-4v8z"
+                  fill="currentColor"
+                  opacity=".4"
+                />
               </svg>
             </div>
             <div class="integ-col">
               <div class="integ-card">
                 <span class="integ-icon">
-                  <svg viewBox="0 0 28 28" fill="none"><rect x="2" y="4" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 24h12M14 20v4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10h4v6H7zM13 8h4v8h-4zM19 12h4v4h-4z" fill="currentColor" opacity=".3"/></svg>
+                  <svg viewBox="0 0 28 28" fill="none">
+                    <rect
+                      x="2"
+                      y="4"
+                      width="24"
+                      height="16"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M8 24h12M14 20v4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M7 10h4v6H7zM13 8h4v8h-4zM19 12h4v4h-4z"
+                      fill="currentColor"
+                      opacity=".3"
+                    />
+                  </svg>
                 </span>
                 <span class="integ-label">WinCC Unified</span>
                 <span class="integ-sub">Operator dashboard</span>
               </div>
               <div class="integ-card">
                 <span class="integ-icon">
-                  <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M14 8v6l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  <svg viewBox="0 0 28 28" fill="none">
+                    <circle
+                      cx="14"
+                      cy="14"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M14 8v6l4 4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
                 </span>
                 <span class="integ-label">Automation</span>
                 <span class="integ-sub">Closed-loop actions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Visual: Federated & Privacy-Aware Causal AI ===== -->
+        <div class="diagram-block reveal">
+          <h3 class="diagram-title">Federated &amp; Privacy-Aware Causal AI</h3>
+          <p class="diagram-desc">Learning causal structure across distributed sites without sharing raw data.</p>
+          <div class="federated-diagram">
+            <!-- Site nodes -->
+            <div class="fed-sites">
+              <div class="fed-site">
+                <div class="fed-site-icon">
+                  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="12" width="28" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 6h16l6 6H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 20h12M14 24h8M14 28h10" stroke="currentColor" stroke-width="1" opacity=".35"/></svg>
+                </div>
+                <span class="fed-site-label">Site A</span>
+                <span class="fed-site-sub">Local data stays local</span>
+              </div>
+              <div class="fed-site">
+                <div class="fed-site-icon">
+                  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="12" width="28" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 6h16l6 6H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 20h12M14 24h8M14 28h10" stroke="currentColor" stroke-width="1" opacity=".35"/></svg>
+                </div>
+                <span class="fed-site-label">Site B</span>
+                <span class="fed-site-sub">Local data stays local</span>
+              </div>
+              <div class="fed-site">
+                <div class="fed-site-icon">
+                  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="12" width="28" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 6h16l6 6H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 20h12M14 24h8M14 28h10" stroke="currentColor" stroke-width="1" opacity=".35"/></svg>
+                </div>
+                <span class="fed-site-label">Site N</span>
+                <span class="fed-site-sub">Local data stays local</span>
+              </div>
+            </div>
+            <!-- Arrows down -->
+            <div class="fed-flow">
+              <div class="fed-flow-arrows">
+                <svg viewBox="0 0 200 40" fill="none">
+                  <path d="M40 0v16c0 8 8 8 16 8h88c8 0 16 0 16-8V0" stroke="currentColor" stroke-width="1.5" opacity=".25"/>
+                  <path d="M100 24v10" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                  <path d="M96 30l4 6 4-6" fill="currentColor" opacity=".35"/>
+                </svg>
+              </div>
+              <div class="fed-flow-label">
+                <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v8M6 10h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".5"/></svg>
+                <span>Only structure &amp; statistics — never raw data</span>
+              </div>
+            </div>
+            <!-- Central model -->
+            <div class="fed-center">
+              <div class="fed-center-card">
+                <div class="fed-center-icon">
+                  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="22" r="5" stroke="currentColor" stroke-width="2"/><circle cx="34" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="34" cy="32" r="4" stroke="currentColor" stroke-width="2"/><path d="M15 20l15-6M15 24l15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polygon points="28,13.5 31,14.5 28,16" fill="currentColor" opacity=".6"/><polygon points="28,31 31,32 28,33.5" fill="currentColor" opacity=".6"/></svg>
+                </div>
+                <span class="fed-center-label">Global Causal Graph</span>
+                <span class="fed-center-sub">Aggregated structure, privacy preserved</span>
               </div>
             </div>
           </div>

@@ -6,7 +6,11 @@ const siteData = {
   },
 
   social: [
-    { label: "Email", url: "mailto:tfekete@constructor.university", icon: "email" },
+    {
+      label: "Email",
+      url: "mailto:tfekete@constructor.university",
+      icon: "email",
+    },
     { label: "GitHub", url: "https://github.com/FTamas77", icon: "github" },
     {
       label: "mira Platform",
