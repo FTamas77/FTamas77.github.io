@@ -196,7 +196,6 @@ h1, h2, h3 {
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.05;
-  max-width: 16ch;
   margin-bottom: 20px;
 }
 
