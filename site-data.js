@@ -44,7 +44,7 @@ const siteData = {
   ],
 
   hero: {
-    title: "Causal AI for Industrial Intelligence",
+    title: "Causal AI\nfor Industrial Intelligence",
     subtitle:
       "Building platforms, open-source tools, and peer-reviewed research that turn causal discovery and counterfactual reasoning into actionable evidence for manufacturing, transport, and sustainability.",
   },
