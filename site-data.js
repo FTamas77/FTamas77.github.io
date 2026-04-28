@@ -26,6 +26,7 @@ const siteData = {
 
   navigation: [
     { label: "About", url: "#about" },
+    { label: "Why It Matters", url: "#why-it-matters" },
     { label: "Projects", url: "#selected-work" },
     { label: "Publications", url: "#publications" },
   ],
@@ -68,6 +69,59 @@ const siteData = {
       copy: "Work spans emissions, urban mobility, manufacturing sustainability, energy use, cost drivers, and operational choices.",
     },
   ],
+
+  whyItMatters: {
+    intro: "Even with strong instrumentation and data availability, teams still struggle with slow root-cause analysis, wrong intervention focus, hidden trade-offs, and unmodeled operational drivers. Correlations highlight patterns, but they do not show which factors actually drive the outcome.",
+    painPoints: [
+      {
+        icon: "search",
+        title: "Slow root-cause analysis",
+        desc: "Many signals, unclear causes, long investigation cycles.",
+      },
+      {
+        icon: "target",
+        title: "Wrong intervention focus",
+        desc: "The most visible variable is often a consequence, not the real lever.",
+      },
+      {
+        icon: "tradeoff",
+        title: "Hidden trade-offs",
+        desc: "Local improvements can damage stability, quality, or throughput elsewhere.",
+      },
+      {
+        icon: "blind",
+        title: "Unmodeled drivers",
+        desc: "Important factors exist in operations but are never treated explicitly.",
+      },
+    ],
+    genaiPositioning: {
+      title: "GenAI and Causal AI — different roles",
+      causalRole: "Causal AI is the decision-support engine: it builds the causal model, evaluates candidate actions, and identifies realistic interventions under real-world constraints.",
+      genaiRole: "GenAI is the interface layer: it helps users explore, explain, and work with results — while staying grounded in validated causal outputs.",
+    },
+    examples: [
+      {
+        tag: "Manufacturing",
+        title: "Scrap instability driven by workflow factors",
+        symptom: "Recurring scrap peaks and rising downtime despite stable primary signals.",
+        correlationAction: "Reduce speed by 8%",
+        correlationResult: "Scrap 4.9% → 4.6%, throughput −6%",
+        causalAction: "Improve handover quality, onboarding, and override policy",
+        causalResult: "Scrap 4.9% → 2.2%, downtime −12%, throughput +4%",
+        insight: "The causal model reveals that speed is a downstream consequence of shift pressure — the real lever is in process discipline and operator context.",
+      },
+      {
+        tag: "Industrial Software",
+        title: "Outage variance driven by release workflow",
+        symptom: "High outage variance for the same build, influenced by rollout timing and on-call load.",
+        correlationAction: "Increase timeout or add retries",
+        correlationResult: "Outage 3.2 → 2.9 hrs/week, slower UX",
+        causalAction: "Rollout window policy, pre-checks, workload spike reduction",
+        causalResult: "Outage 3.2 → 1.1 hrs/week, MTTR −35%",
+        insight: "The causal model shows that timeout and retry are intermediate variables — the real driver is on-call workload and release workflow context.",
+      },
+    ],
+  },
   selectedWork: [
     {
       slug: "mira-ai-platform",
@@ -82,12 +136,13 @@ const siteData = {
       summary:
         "A flagship industrial causal AI workspace for asking counterfactual questions, narrowing the search space, and turning process data into evidence for decisions.",
       detail:
-        "mira brings together causal discovery, agent-assisted analysis, and industrial integration thinking for process and manufacturing environments, including Siemens SIMATIC WinCC Unified scenarios.",
+        "mira brings together causal discovery, agent-assisted analysis, and industrial integration for process and manufacturing environments.",
       highlights: [
-        "Counterfactual-first search space reduction",
-        "Agent-assisted causal analysis for industrial time-series data",
-        "Full industrial integration path, including Siemens SIMATIC WinCC Unified",
-        "Registration and access requests are available from the platform login page",
+        "Explainable causal models for concrete decision questions",
+        "Estimated intervention impact with uncertainty and assumptions",
+        "Feasible intervention options within operational constraints",
+        "Validation-aware decision support with robustness checks",
+        "Knowledge and evidence traceability for audit and reuse",
       ],
       links: [
         {

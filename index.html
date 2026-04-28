@@ -709,6 +709,29 @@
       </div>
     </section>
 
+    <!-- ========== WHY IT MATTERS ========== -->
+    <section class="section" id="why-it-matters">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Why It Matters</span>
+          <h2>Correlation Is Not Enough</h2>
+        </div>
+        <p class="section-intro reveal" id="why-intro"></p>
+
+        <div class="pain-grid" id="pain-grid"></div>
+
+        <!-- GenAI vs Causal AI -->
+        <div class="genai-block reveal" id="genai-block"></div>
+
+        <!-- Real-world examples -->
+        <div class="examples-header reveal">
+          <h3>What this looks like in practice</h3>
+          <p class="section-intro">Two real-world patterns where causal-level intervention significantly outperforms correlation-driven action.</p>
+        </div>
+        <div class="examples-grid" id="examples-grid"></div>
+      </div>
+    </section>
+
     <!-- ========== PROJECTS ========== -->
     <section class="section" id="selected-work">
       <div class="container">
@@ -828,6 +851,77 @@
         `;
         focusGridEl.appendChild(card);
       });
+
+      /* ------------------------------------------------------------------
+         WHY IT MATTERS
+         ------------------------------------------------------------------ */
+      const whyIntro = $("why-intro");
+      if (whyIntro && siteData.whyItMatters) {
+        whyIntro.textContent = siteData.whyItMatters.intro;
+
+        /* Pain points */
+        const painGrid = $("pain-grid");
+        const painIcons = {
+          search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`,
+          target: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+          tradeoff: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l4 4-4 4"/><path d="M20 7H4"/><path d="M8 21l-4-4 4-4"/><path d="M4 17h16"/></svg>`,
+          blind: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`,
+        };
+        siteData.whyItMatters.painPoints.forEach((p, i) => {
+          const card = document.createElement("article");
+          card.className = `pain-card reveal reveal-delay-${Math.min(i + 1, 4)}`;
+          card.innerHTML = `
+            <div class="pain-icon">${painIcons[p.icon] || ""}</div>
+            <h4>${esc(p.title)}</h4>
+            <p>${esc(p.desc)}</p>
+          `;
+          painGrid.appendChild(card);
+        });
+
+        /* GenAI vs Causal AI positioning */
+        const genaiBlock = $("genai-block");
+        const gp = siteData.whyItMatters.genaiPositioning;
+        genaiBlock.innerHTML = `
+          <h3>${esc(gp.title)}</h3>
+          <div class="genai-roles">
+            <div class="genai-role causal">
+              <span class="role-badge">Causal AI</span>
+              <p>${esc(gp.causalRole)}</p>
+            </div>
+            <div class="genai-role genai">
+              <span class="role-badge">GenAI</span>
+              <p>${esc(gp.genaiRole)}</p>
+            </div>
+          </div>
+        `;
+
+        /* Real-world examples */
+        const exGrid = $("examples-grid");
+        siteData.whyItMatters.examples.forEach((ex, i) => {
+          const card = document.createElement("article");
+          card.className = `example-card reveal reveal-delay-${i + 1}`;
+          card.innerHTML = `
+            <span class="card-tag">${esc(ex.tag)}</span>
+            <h4>${esc(ex.title)}</h4>
+            <p class="example-symptom">${esc(ex.symptom)}</p>
+            <div class="example-compare">
+              <div class="compare-col correlation">
+                <span class="compare-label">Correlation-driven</span>
+                <p class="compare-action">${esc(ex.correlationAction)}</p>
+                <p class="compare-result">${esc(ex.correlationResult)}</p>
+              </div>
+              <div class="compare-vs">vs</div>
+              <div class="compare-col causal">
+                <span class="compare-label">Causal intervention</span>
+                <p class="compare-action">${esc(ex.causalAction)}</p>
+                <p class="compare-result">${esc(ex.causalResult)}</p>
+              </div>
+            </div>
+            <p class="example-insight">${esc(ex.insight)}</p>
+          `;
+          exGrid.appendChild(card);
+        });
+      }
 
       /* ------------------------------------------------------------------
          PROJECTS
