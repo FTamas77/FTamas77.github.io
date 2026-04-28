@@ -24,7 +24,7 @@ const siteData = {
     }
   },
   about: [
-    "Three threads define the portfolio: ontology-guided structure learning, intervention-oriented effect analysis, and deployment paths for industrial time-series data.",
+    "Three threads define this public work: ontology-guided structure learning, intervention-oriented effect analysis, and deployment paths for industrial time-series data.",
     "The industrial angle is practical: causal outputs should fit process data, operator workflows, and automation environments such as Siemens SIMATIC WinCC Unified."
   ],
   focusAreas: [
