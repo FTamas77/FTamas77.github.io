@@ -794,7 +794,8 @@
       badge.textContent = siteData.owner.name;
       const cred = document.createElement("span");
       cred.className = "hero-credential";
-      cred.textContent = siteData.owner.credential;
+      const aff = siteData.owner.affiliation;
+      cred.innerHTML = `${esc(siteData.owner.credential)} · <a href="${aff.group.url}" target="_blank" rel="noreferrer" title="${esc(aff.group.fullName)}">${esc(aff.group.name)}</a> · <a href="${aff.university.url}" target="_blank" rel="noreferrer">${esc(aff.university.name)}</a>, ${esc(aff.university.location)}`;
       badge.appendChild(cred);
 
       $("hero-title").textContent = siteData.hero.title;

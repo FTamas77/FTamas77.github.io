@@ -170,6 +170,17 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
+.hero-credential a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.hero-credential a:hover {
+  color: var(--accent);
+}
+
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.05;

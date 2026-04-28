@@ -2,7 +2,19 @@ const siteData = {
   owner: {
     name: "Dr. Tamas Fekete",
     tagline: "Causal AI Researcher & Engineer",
-    credential: "PhD · Constructor University, Bremen, Germany",
+    credential: "Postdoctoral Researcher",
+    affiliation: {
+      group: {
+        name: "DIS Research Group",
+        fullName: "Data-Driven Industrial Systems Research Group",
+        url: "https://hendro-wicaksono.de/",
+      },
+      university: {
+        name: "Constructor University",
+        location: "Bremen, Germany",
+        url: "https://constructor.university/",
+      },
+    },
   },
 
   social: [
