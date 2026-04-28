@@ -802,7 +802,10 @@
       cred.innerHTML = `${esc(siteData.owner.credential)} · <a href="${aff.group.url}" target="_blank" rel="noreferrer" title="${esc(aff.group.fullName)}">${esc(aff.group.name)}</a> · <a href="${aff.university.url}" target="_blank" rel="noreferrer">${esc(aff.university.name)}</a>, ${esc(aff.university.location)}`;
       badge.appendChild(cred);
 
-      $("hero-title").innerHTML = esc(siteData.hero.title).replace(/\n/g, "<br>");
+      $("hero-title").innerHTML = esc(siteData.hero.title).replace(
+        /\n/g,
+        "<br>",
+      );
       $("hero-subtitle").textContent = siteData.hero.subtitle;
 
       /* Action buttons */
