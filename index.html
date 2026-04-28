@@ -624,12 +624,14 @@
 
       /* Action buttons */
       const actionsEl = $("hero-actions");
+      const ghLink = siteData.social.find((s) => s.icon === "github");
+      const platformLink = siteData.social.find((s) => s.icon === "platform");
       actionsEl.innerHTML = `
         <a href="#selected-work" class="btn btn-primary">View Projects</a>
-        <a href="${siteData.social[0].url}" class="btn btn-ghost" target="_blank" rel="noreferrer">
+        <a href="${ghLink.url}" class="btn btn-ghost" target="_blank" rel="noreferrer">
           ${icons.github} GitHub
         </a>
-        <a href="${siteData.social[1].url}" class="btn btn-ghost" target="_blank" rel="noreferrer">
+        <a href="${platformLink.url}" class="btn btn-ghost" target="_blank" rel="noreferrer">
           ${icons.platform} mira Platform
         </a>
       `;
