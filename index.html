@@ -6,7 +6,7 @@
     <title>Tamas Fekete | Causal AI</title>
     <meta
       name="description"
-      content="Personal site of Dr. Tamas Fekete focused on causal AI projects, research directions, and publications."
+      content="Public causal AI projects, repositories, demos, and publications focused on industrial decision support."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,14 +21,15 @@
       <header class="hero">
         <div class="hero-grid">
           <div class="hero-copy-wrap">
+            <p class="site-owner">Dr. Tamas Fekete</p>
             <h1 id="hero-title"></h1>
             <p class="hero-copy" id="hero-summary"></p>
           </div>
           <aside class="hero-side">
             <article class="signal-card">
-              <p class="card-tag">Current focus</p>
-              <p class="signal-value" id="current-focus-title"></p>
-              <p class="signal-copy" id="current-focus-copy"></p>
+              <p class="card-tag">Method</p>
+              <p class="signal-value" id="project-focus-title"></p>
+              <p class="signal-copy" id="project-focus-copy"></p>
             </article>
           </aside>
         </div>
@@ -36,37 +37,27 @@
 
       <main>
         <nav class="panel nav-panel" aria-label="Page sections">
-          <div class="chip-row" id="section-nav"></div>
+          <div class="chip-row" id="section-nav" role="tablist"></div>
         </nav>
 
-        <section class="panel" id="about">
+        <section class="panel tab-panel" id="about" data-section-panel role="tabpanel">
           <div class="section-heading">
-            <p class="section-kicker">About</p>
-            <h2>Causal AI work</h2>
+            <p class="section-kicker">Scope</p>
+            <h2>What this portfolio covers</h2>
           </div>
           <div class="body-copy" id="about-copy"></div>
           <div class="focus-grid" id="focus-grid"></div>
         </section>
 
-        <section class="panel" id="selected-work">
+        <section class="panel tab-panel" id="selected-work" data-section-panel role="tabpanel">
           <div class="section-heading">
             <p class="section-kicker">Selected Work</p>
-            <h2>Public projects and demos</h2>
+            <h2>Projects and demos</h2>
           </div>
-          <div class="chip-row chip-row-secondary" id="work-nav"></div>
           <div class="work-grid" id="work-grid"></div>
         </section>
 
-        <section class="panel" id="current">
-          <div class="section-heading">
-            <p class="section-kicker">Current</p>
-            <h2>Current causal AI directions</h2>
-          </div>
-          <div class="body-copy" id="current-copy"></div>
-          <div class="current-grid" id="current-grid"></div>
-        </section>
-
-        <section class="panel" id="publications">
+        <section class="panel tab-panel" id="publications" data-section-panel role="tabpanel">
           <div class="section-heading">
             <p class="section-kicker">Publications</p>
             <h2>Causal AI papers</h2>
@@ -106,18 +97,28 @@
 
       byId("hero-title").textContent = siteData.hero.title;
       byId("hero-summary").textContent = siteData.hero.summary;
-      byId("current-focus-title").textContent = siteData.hero.currentFocus.title;
-      byId("current-focus-copy").textContent = siteData.hero.currentFocus.copy;
+      byId("project-focus-title").textContent = siteData.hero.projectFocus.title;
+      byId("project-focus-copy").textContent = siteData.hero.projectFocus.copy;
 
       renderParagraphs("about-copy", siteData.about);
-      renderParagraphs("current-copy", siteData.current.intro);
 
       const sectionNav = byId("section-nav");
+      const sectionIds = siteData.navigation.map((item) => item.url.replace("#", ""));
+
       siteData.navigation.forEach((item) => {
+        const sectionId = item.url.replace("#", "");
         const link = document.createElement("a");
         link.className = "chip-link";
         link.href = item.url;
         link.textContent = item.label;
+        link.dataset.sectionTarget = sectionId;
+        link.setAttribute("role", "tab");
+        link.setAttribute("aria-controls", sectionId);
+        link.setAttribute("aria-selected", "false");
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          setActiveSection(sectionId, { updateHash: true });
+        });
         sectionNav.appendChild(link);
       });
 
@@ -133,19 +134,12 @@
         focusGrid.appendChild(card);
       });
 
-      const workNav = byId("work-nav");
       const workGrid = byId("work-grid");
       siteData.selectedWork.forEach((item) => {
         const workId = `work-${item.slug || slugify(item.title)}`;
 
-        const navLink = document.createElement("a");
-        navLink.className = "chip-link subtle";
-        navLink.href = `#${workId}`;
-        navLink.textContent = item.title;
-        workNav.appendChild(navLink);
-
         const card = document.createElement("article");
-        card.className = "work-card";
+        card.className = item.featured ? "work-card featured-work" : "work-card";
         card.id = workId;
 
         let visualMarkup = "";
@@ -164,28 +158,28 @@
           })
           .join("");
 
+        const featuredLabel = item.featuredLabel
+          ? `<p class="card-tag">${item.featuredLabel}</p>`
+          : "";
+
+        const highlights = item.highlights
+          ? `<ul class="work-highlights">${item.highlights
+              .map((highlight) => `<li>${highlight}</li>`)
+              .join("")}</ul>`
+          : "";
+
         card.innerHTML = `
           ${visualMarkup}
           <div class="work-body">
+            ${featuredLabel}
             <h3>${item.title}</h3>
             <p class="work-summary">${item.summary}</p>
             <p class="work-summary">${item.detail}</p>
+            ${highlights}
             <div class="link-row">${links}</div>
           </div>
         `;
         workGrid.appendChild(card);
-      });
-
-      const currentGrid = byId("current-grid");
-      siteData.current.items.forEach((item) => {
-        const card = document.createElement("article");
-        card.className = "current-card";
-        card.innerHTML = `
-          <p class="card-tag">${item.tag}</p>
-          <h3>${item.title}</h3>
-          <p>${item.copy}</p>
-        `;
-        currentGrid.appendChild(card);
       });
 
       const publicationList = byId("publication-list");
@@ -204,6 +198,44 @@
           <p class="publication-note">${paper.note}</p>
         `;
         publicationList.appendChild(card);
+      });
+
+      const sectionPanels = sectionIds.map((id) => byId(id));
+      const getSectionIdFromHash = () => {
+        const hashId = window.location.hash.replace("#", "");
+
+        if (sectionIds.includes(hashId)) {
+          return hashId;
+        }
+
+        const nestedTarget = hashId ? byId(hashId) : null;
+        return nestedTarget?.closest("[data-section-panel]")?.id || "selected-work";
+      };
+
+      function setActiveSection(sectionId, options = {}) {
+        const { updateHash = false } = options;
+
+        sectionPanels.forEach((panel) => {
+          const active = panel.id === sectionId;
+          panel.hidden = !active;
+          panel.classList.toggle("active-panel", active);
+        });
+
+        sectionNav.querySelectorAll("[data-section-target]").forEach((link) => {
+          const active = link.dataset.sectionTarget === sectionId;
+          link.classList.toggle("active", active);
+          link.setAttribute("aria-selected", String(active));
+        });
+
+        if (updateHash) {
+          history.pushState(null, "", `#${sectionId}`);
+        }
+      }
+
+      setActiveSection(getSectionIdFromHash());
+
+      window.addEventListener("hashchange", () => {
+        setActiveSection(getSectionIdFromHash());
       });
     </script>
   </body>

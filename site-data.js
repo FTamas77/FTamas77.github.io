@@ -1,7 +1,7 @@
 const siteData = {
   navigation: [
     {
-      label: "Public work",
+      label: "Scope",
       url: "#about"
     },
     {
@@ -9,55 +9,87 @@ const siteData = {
       url: "#selected-work"
     },
     {
-      label: "Current",
-      url: "#current"
-    },
-    {
       label: "Publications",
       url: "#publications"
     }
   ],
   hero: {
-    title: "Dr. Tamas Fekete",
+    title: "Industrial causal AI projects",
     summary:
-      "This site is focused on my public causal AI work, including repositories, research directions, and related publications.",
-    currentFocus: {
-      title: "Causal AI for sustainability and decision support",
+      "Public platforms, repositories, and papers that turn causal discovery and counterfactual reasoning into usable workflows for manufacturing, transport, energy, and sustainability.",
+    projectFocus: {
+      title: "From variables to interventions",
       copy:
-        "The main focus here is causal discovery, causal inference, and intervention-oriented analysis in transportation, manufacturing, and related applied domains."
+        "The common thread is moving from observed process data to causal structure, what-if questions, and practical integration paths."
     }
   },
   about: [
-    "This page collects publicly available work related to my causal AI research, with short context and links to the relevant repository or demo."
+    "Three threads define the portfolio: ontology-guided structure learning, intervention-oriented effect analysis, and deployment paths for industrial time-series data.",
+    "The industrial angle is practical: causal outputs should fit process data, operator workflows, and automation environments such as Siemens SIMATIC WinCC Unified."
   ],
   focusAreas: [
     {
       tag: "Causal discovery",
-      title: "Learning defensible causal structure",
+      title: "Ontology-guided structure learning",
       copy:
-        "Studying how causal graphs can be learned from data in a way that is useful for explanation, intervention, and decision support."
+        "Using domain knowledge and constraints to reduce implausible graphs and make learned structure easier to defend."
     },
     {
       tag: "Causal inference",
-      title: "Estimating effects beyond prediction",
+      title: "Intervention-oriented effect analysis",
       copy:
-        "Using causal methods to ask what changes outcomes, not just what patterns appear in observational data."
+        "Estimating which variables drive outcomes and comparing plausible changes before acting on real systems."
+    },
+    {
+      tag: "Industrial integration",
+      title: "From causal models to plant workflows",
+      copy:
+        "Connecting causal outputs to data pipelines, operator interfaces, and Siemens SIMATIC WinCC Unified integration paths."
+    },
+    {
+      tag: "Agentic workflows",
+      title: "Agents for causal exploration",
+      copy:
+        "Using agents to surface hypotheses, inspect variables, and guide what-if analysis without losing the causal reasoning thread."
     },
     {
       tag: "Applications",
-      title: "Transport and manufacturing use cases",
+      title: "Applied industrial and transport cases",
       copy:
-        "Applying causal AI to emissions, energy, cost, and sustainability questions in real applied settings."
+        "Work spans emissions, urban mobility, manufacturing sustainability, energy use, cost drivers, and operational choices."
     }
   ],
   selectedWork: [
+    {
+      slug: "mira-ai-platform",
+      title: "mira AI platform",
+      featured: true,
+      featuredLabel: "Flagship industrial causal AI platform",
+      summary:
+        "A flagship industrial causal AI workspace for asking counterfactual questions, narrowing the search space, and turning process data into evidence for decisions.",
+      detail:
+        "mira brings together causal discovery, agent-assisted analysis, and industrial integration thinking for process and manufacturing environments, including Siemens SIMATIC WinCC Unified scenarios.",
+      highlights: [
+        "Counterfactual-first search space reduction",
+        "Agent-assisted causal analysis for industrial time-series data",
+        "Full industrial integration path, including Siemens SIMATIC WinCC Unified",
+        "Registration and access requests are available from the platform login page"
+      ],
+      links: [
+        {
+          label: "Open platform / request account",
+          url: "https://mira-ai-platform.vercel.app/",
+          external: true
+        }
+      ]
+    },
     {
       slug: "cppcausality",
       title: "CPPCausality",
       summary:
         "High-performance C++ implementation of ontology-guided FCI for the transportation emissions work.",
       detail:
-        "Focused on native ontology constraints and faster large-scale causal discovery.",
+        "Focused on native ontology constraints, domain-informed graph structure, and faster large-scale causal discovery for transport and industrial decision support.",
       links: [
         {
           label: "Open repository",
@@ -72,7 +104,7 @@ const siteData = {
       summary:
         "Main Python repository for the ontology-guided transportation work.",
       detail:
-        "Includes dataset documentation, GUI-based analysis, and causal discovery and inference workflows.",
+        "Includes dataset documentation, GUI-based analysis, causal discovery, causal inference, and intervention-oriented workflows for emissions and mobility analysis.",
       links: [
         {
           label: "Open repository",
@@ -132,31 +164,6 @@ const siteData = {
       ]
     }
   ],
-  current: {
-    intro: [
-      "Short notes on the causal AI directions that are currently most relevant in my work."
-    ],
-    items: [
-      {
-        tag: "Current direction",
-        title: "Ontology-guided causal discovery",
-        copy:
-          "A current line of work uses ontology constraints and domain knowledge to improve causal discovery and reduce implausible graph structure."
-      },
-      {
-        tag: "Application area",
-        title: "Transport and manufacturing case studies",
-        copy:
-          "The main application areas here are transportation emissions, urban mobility, manufacturing sustainability, and industrial decision support."
-      },
-      {
-        tag: "Research note",
-        title: "Ontology-guided transport research",
-        copy:
-          "One active line of work connects domain knowledge, ontology constraints, and causal discovery for transportation emissions, with the broader goal of making structured AI systems more defensible."
-      }
-    ]
-  },
   publications: [
     {
       meta: "Procedia CIRP, 2024",
